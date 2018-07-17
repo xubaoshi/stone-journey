@@ -1,0 +1,19 @@
+{
+  "name": "mini-pro-backend",
+  "version": "1.0.0",
+  "description": "mini program backend",
+  "main": "index.js",
+  "author": "xubaoshi",
+  "license": "MIT",
+  "dependencies": {
+    "egg": "^2.9.1",
+    "egg-redis": "^2.0.0",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "egg-bin": "^4.7.1"
+  },
+  "scripts": {
+    "dev": "egg-bin dev"
+  }
+}
