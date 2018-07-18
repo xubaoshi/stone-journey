@@ -14,7 +14,6 @@ class LoginController extends Controller {
     const sessionId = uuid()
     const obj = {[sessionId]: `${result.data.session_key}#${result.data.openid}`}
     await app.redis.set('sessionid',JSON.stringify(obj))
-    console.log(await app.redis.get('sessionid'))
     ctx.body = sessionId
     ctx.status = 200
   }
@@ -25,8 +24,6 @@ class LoginController extends Controller {
     const session = JSON.parse(obj)
     const sessionid = ctx.request.headers['sessionid']
     const sessionArr = sessionid.split('#')
-    console.log(session[sessionid])
-    console.log(session)
     ctx.body = sessionArr.length > 0 ? sessionArr[0] : ''
     ctx.status = 200
   } 
