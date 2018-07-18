@@ -22,9 +22,12 @@ class LoginController extends Controller {
   async getSessionKey() {
     const { ctx, app } = this;
     const obj = await app.redis.get('sessionid')
-    console.log(ctx.request.headers)
-    console.log(obj)
-    ctx.body = obj
+    const session = JSON.parse(obj)
+    const sessionid = ctx.request.headers['sessionid']
+    const sessionArr = sessionid.split('#')
+    console.log(session[sessionid])
+    console.log(session)
+    ctx.body = sessionArr.length > 0 ? sessionArr[0] : ''
     ctx.status = 200
   } 
 }
